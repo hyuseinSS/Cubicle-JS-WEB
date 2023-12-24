@@ -8,22 +8,9 @@
     },
     {
         "name": "Gan356 Air SM",
-        "description": "Such a lovely cube that is!",
+        "description": "Не може без дискрипшан!",
         "imageUrl": "https://ae01.alicdn.com/kf/HTB1CSddXRxRMKJjy0Fdq6yifFXa6/Gan-356-Air-SM-3x3-Black-Magic-cube-GAN-Air-SM-Magnetic-3x3x3-Speed-cube-gans.jpg",
-        "id": "3",
-        "difficultyLevel": "1"
-    },
-    {
-        "id": 4,
-        "name": "Gan356 Air SM",
-        "imageUrl": "https://ae01.alicdn.com/kf/HTB1CSddXRxRMKJjy0Fdq6yifFXa6/Gan-356-Air-SM-3x3-Black-Magic-cube-GAN-Air-SM-Magnetic-3x3x3-Speed-cube-gans.jpg",
-        "difficultyLevel": 3
-    },
-    {
-        "name": "Updated 1",
-        "description": "1",
-        "imageUrl": "21312312321",
-        "id": "5",
+        "id": "4",
         "difficultyLevel": "1"
     }
 ]

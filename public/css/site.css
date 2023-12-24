@@ -272,3 +272,18 @@ footer {
         opacity: 0;
     }
 }
+
+.deleteBtn {
+    background-color: #e00a0a;
+    border: none;
+    padding: 8px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 18px;
+    width: 47%;
+    margin: 5px 5px 5px 25%;
+    color: white;
+    text-transform: uppercase;
+    border-radius: 4px;
+}

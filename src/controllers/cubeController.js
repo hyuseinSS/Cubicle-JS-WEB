@@ -48,7 +48,7 @@ router.post('/update', (req, res) => {
 
     let data = JSON.stringify(cubes, "", 4)
     fs.writeFile('src/db.json', data, { encoding: "utf-8" })
-    return res.redirect("/")
+   return res.redirect("/")
 })
 
 module.exports = router
