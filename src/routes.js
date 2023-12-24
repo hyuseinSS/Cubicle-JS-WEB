@@ -1,4 +1,12 @@
-const express = require("express");
-const handlebars = require("express-handlebars");
+const cubeController = require("./controllers/cubeController")
+const homeController = require("./controllers/homeController");
+
+const router = require("express").Router();
+
+router.get("/", homeController.index);
+router.get("/about", homeController.about)
+
+router.use("/cube", cubeController)
 
 
+module.exports = router
