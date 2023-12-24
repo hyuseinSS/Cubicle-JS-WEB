@@ -27,3 +27,14 @@ exports.getAll = (name = "", from = "", to = "") => {
         .filter(cube => cube.difficultyLevel >= from && cube.difficultyLevel <= to)
     return result;
 }
+
+exports.like = (id) => {
+    const cube = cubes.filter(cube => cube.id == id)[0];
+    const index = cubes.findIndex(x => x.id == id)
+    cube.likes = "Liked! :)"
+
+    cubes.splice(index, 1, cube)
+
+    let data = JSON.stringify(cubes, "", 4)
+    return fs.writeFile('src/db.json', data, { encoding: "utf-8" })
+}
