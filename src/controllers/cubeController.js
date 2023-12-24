@@ -5,7 +5,6 @@ const path = require("path")
 
 router.get("/create", (req, res) => {
     res.render("create")
-    console.log(cubes)
 })
 
 router.post("/create", (req, res) => {
@@ -13,9 +12,13 @@ router.post("/create", (req, res) => {
     const data = req.body;
 
     cubes.push(data)
-    fs.writeFile(path.resolve("../db.json"), JSON.stringify(cubes), { encoding: "utf-8" })
+    console.log(path.resolve("src", "db.json"));
+    fs.writeFile(path.resolve("src", "db.json"), JSON.stringify(cubes), { encoding: "utf-8" })
         .then(() => {
             res.redirect("/")
+        })
+        .catch(err => {
+            return res.status(400).send("LoL!")
         })
 
 })
