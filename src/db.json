@@ -1,23 +1,20 @@
 [
     {
+        "id": 1,
         "name": "Gan356 Air SM",
         "imageUrl": "https://ae01.alicdn.com/kf/HTB1CSddXRxRMKJjy0Fdq6yifFXa6/Gan-356-Air-SM-3x3-Black-Magic-cube-GAN-Air-SM-Magnetic-3x3x3-Speed-cube-gans.jpg",
         "difficultyLevel": 3
     },
     {
+        "id": 2,
         "name": "Gan3456 Water SM",
         "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSOI9o_H9f0CXjDlkINQCLv0Cyu7_KDOAu02A&usqp=CAU",
         "difficultyLevel": 1
     },
     {
+        "id": 3,
         "name": "Gan3556 Air XX",
         "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRnqdQWCMPtROL6FRT613v6lhR4_t9SdFxxGg&usqp=CAU",
         "difficultyLevel": 6
-    },
-    {
-        "name": "12312",
-        "description": "",
-        "imageUrl": "",
-        "difficultyLevel": "1"
     }
 ]
