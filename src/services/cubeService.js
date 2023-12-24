@@ -10,8 +10,14 @@ exports.save = (cube) => {
 }
 
 exports.getOne = (id) => {
-
     return cubes.filter(cube => cube.id == id)
+}
+
+exports.deleteOne = (id) => {
+    const index = cubes.findIndex(x => x.id == id)
+    cubes.splice(index, 1)
+    let data = JSON.stringify(cubes, "", 4)
+    return fs.writeFile('src/db.json', data, { encoding: "utf-8" })
 }
 
 exports.getAll = (name = "", from = "", to = "") => {

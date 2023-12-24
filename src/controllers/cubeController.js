@@ -2,7 +2,7 @@ const router = require("express").Router();
 const fs = require("fs/promises");
 const path = require("path")
 const cubes = require("../db.json");
-const { save, getOne } = require("../services/cubeService");
+const { save, getOne, deleteOne } = require("../services/cubeService");
 
 router.get("/create", (req, res) => {
     res.render("create")
@@ -28,5 +28,10 @@ router.get('/details/:id', (req, res) => {
     res.render("details", { cube })
 })
 
+router.get("/delete/:id", (req, res) => {
+    const id = req.params.id
+    const result = deleteOne(id)
+    res.redirect("/")
+})
 
 module.exports = router
