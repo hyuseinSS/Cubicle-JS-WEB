@@ -1,24 +1,28 @@
 const router = require("express").Router();
 const fs = require("fs/promises");
-const cubes = require("../db.json");
 const path = require("path")
+const cubes = require("../db.json");
 
 router.get("/create", (req, res) => {
     res.render("create")
 })
 
 router.post("/create", (req, res) => {
+    const cube = req.body
 
-    const data = req.body;
+    if (cube.name.length < 2) {
+        return res.status(400).send("Longer Name Please!")
+    }
 
-    cubes.push(data)
-    console.log(path.resolve("src", "db.json"));
-    fs.writeFile(path.resolve("src", "db.json"), JSON.stringify(cubes), { encoding: "utf-8" })
+
+    cubes.push(cube)
+
+    fs.writeFile('src/db.json', JSON.stringify(cubes, "", 4))
         .then(() => {
             res.redirect("/")
         })
         .catch(err => {
-            return res.status(400).send("LoL!")
+            return res.status(400).send("Error Error !")
         })
 
 })

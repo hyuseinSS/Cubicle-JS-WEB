@@ -13,5 +13,11 @@
         "name": "Gan3556 Air XX",
         "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRnqdQWCMPtROL6FRT613v6lhR4_t9SdFxxGg&usqp=CAU",
         "difficultyLevel": 6
+    },
+    {
+        "name": "12312",
+        "description": "",
+        "imageUrl": "",
+        "difficultyLevel": "1"
     }
 ]
