@@ -72,7 +72,7 @@ div.cube {
     display: inline-block;
     border: 1px solid #2b415433;
     background: white;
-    width: 23%;
+    width: 32%;
     vertical-align: top;
 }
 
@@ -90,16 +90,28 @@ p.name {
     border-bottom: 1px solid #2b415433;
 }
 
-button, main a.btn {
+.container {
+    display: flex;
+    flex-direction: row;
+    /* Buttons will be in a row */
+    flex-wrap: wrap;
+    /* Wrap to the next line when they don't fit */
+    justify-content: center;
+    /* Add space between buttons */
+
+}
+
+button,
+main a.btn {
     border: none;
-    padding: 8px;
+    padding: 10px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
     font-size: 18px;
-    width: 35%;
-    margin: 5px;
-    margin-left: 6%;
+    width: 38%;
+    /* Adjust the width as needed */
+    margin: 13px;
     border-radius: 4px;
     background: #607588;
     color: white;
@@ -120,7 +132,7 @@ a {
 div.details {
     display: block;
     margin: auto;
-    width: 50%;
+    width: 31%;
     background-color: #f3f3f2;
     padding: 1em;
 }
@@ -220,12 +232,12 @@ span.error {
     display: block;
 }
 
-img#sadFaceImg{
+img#sadFaceImg {
     display: block;
     margin: 0 auto;
 }
 
-h2{
+h2 {
     text-align: center;
 }
 
