@@ -28,9 +28,13 @@ router.get('/details/:id', async (req, res) => {
 router.get('/delete/:id', async (req, res) => {
     const id = req.params.id
 
-    confirm("Would you like to delete this item?")
+    // const choice = window.confirm("Would you like to delete this item?")
 
+    // if (choice) {
     await Cube.deleteOne({ _id: id })
+    // } else {
+    //     return;
+    // }
     res.redirect("/")
 })
 
