@@ -1,40 +1,41 @@
 const router = require("express").Router();
+const mongoose = require("mongoose")
 const fs = require("fs/promises");
 const cubes = require("../db.json");
 const { save, getOne, deleteOne, like } = require("../services/cubeService");
+const Cube = require("../models/Cube")
 
 router.get("/create", (req, res) => {
     res.render("create")
 })
 
-router.post("/create", (req, res) => {
+router.post("/create", async (req, res) => {
     const cube = req.body
+    await Cube.create(cube)
+    res.redirect('/');
+})
 
-    if (cube.name.length < 2) {
-        return res.status(400).send("Longer Name Please!")
+router.get('/details/:id', async (req, res) => {
+    try {
+        const cube = await getOne(req.params.id);
+        res.render("details", { cube })
+    } catch (error) {
+        console.log(error);
     }
-    save(cube)
-        .then(() => {
-            res.redirect("/")
-        })
-        .catch(err => {
-            return res.status(400).send("Error Error !")
-        })
+
 })
 
-router.get('/details/:id', (req, res) => {
-    const cube = getOne(req.params.id)[0]
-    res.render("details", { cube })
-})
-
-router.get("/delete/:id", (req, res) => {
+router.get('/delete/:id', async (req, res) => {
     const id = req.params.id
-    deleteOne(id)
+
+    confirm("Would you like to delete this item?")
+
+    await Cube.deleteOne({ _id: id })
     res.redirect("/")
 })
 
-router.get("/edit/:id", (req, res) => {
-    const cube = getOne(req.params.id)[0]
+router.get("/edit/:id", async (req, res) => {
+    const cube = await getOne(req.params.id);
     res.render('update', { cube })
 })
 
@@ -45,16 +46,11 @@ router.get("/like/:id", (req, res) => {
     res.redirect(`/cube/details/${id}`)
 })
 
-router.post('/update', (req, res) => {
+router.post('/update', async (req, res) => {
     const cube = req.body
-
-    const index = cubes.findIndex(x => x.id == cube.id)
-
-    cubes.splice(index, 1, cube)
-
-    let data = JSON.stringify(cubes, "", 4)
-    fs.writeFile('src/db.json', data, { encoding: "utf-8" })
-    return res.redirect("/")
+    const id = req.body.id
+    await Cube.updateOne({ _id: id }, cube);
+    res.redirect("/")
 })
 
 

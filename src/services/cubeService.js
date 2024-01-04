@@ -1,40 +1,27 @@
-const cubes = require("../db.json");
 const fs = require("fs/promises");
+const Cube = require("../models/Cube")
 
 
-exports.save = (cube) => {
-    cube.id = cubes[cubes.length - 1].id + 1
-    cubes.push(cube)
-    let data = JSON.stringify(cubes, "", 4)
-    return fs.writeFile('src/db.json', data, { encoding: "utf-8" })
+exports.getOne = async (id) => {
+    return await Cube.findOne({ _id: id }).lean()
 }
 
-exports.getOne = (id) => {
-    return cubes.filter(cube => cube.id == id)
-}
-
-exports.deleteOne = (id) => {
-    const index = cubes.findIndex(x => x.id == id)
-    cubes.splice(index, 1)
-    let data = JSON.stringify(cubes, "", 4)
-    return fs.writeFile('src/db.json', data, { encoding: "utf-8" })
-}
-
-exports.getAll = (name = "", from = "", to = "") => {
-    name = name.toLowerCase()
-    const result = cubes
-        .filter(cube => cube.name.toLowerCase().includes(name))
-        .filter(cube => cube.difficultyLevel >= from && cube.difficultyLevel <= to)
+exports.getAll = async (name = "", from = "", to = "") => {
+    const result = await Cube.find().lean()
     return result;
 }
 
-exports.like = (id) => {
-    const cube = cubes.filter(cube => cube.id == id)[0];
-    const index = cubes.findIndex(x => x.id == id)
-    cube.likes = "Liked! :)"
+// exports.like = (id) => {
+//     const cube = cubes.filter(cube => cube.id == id)[0];
+//     const index = cubes.findIndex(x => x.id == id)
 
-    cubes.splice(index, 1, cube)
+//     if (cube.likes == "Liked! :)") {
+//         return;
+//     }
+//     cube.likes = "Liked! :)"
 
-    let data = JSON.stringify(cubes, "", 4)
-    return fs.writeFile('src/db.json', data, { encoding: "utf-8" })
-}
+//     cubes.splice(index, 1, cube)
+
+//     let data = JSON.stringify(cubes, "", 4)
+//     return fs.writeFile('src/db.json', data, { encoding: "utf-8" })
+// }

@@ -8,19 +8,25 @@
         "likes": "Liked! :)"
     },
     {
-        "name": "Gan356 Air SM",
+        "name": "Cute Kitten",
         "description": "Не може без дискрипшан!",
         "imageUrl": "https://img.freepik.com/free-photo/cute-domestic-kitten-sits-window-staring-outside-generative-ai_188544-12519.jpg?size=626&ext=jpg&ga=GA1.1.1546980028.1703376000&semt=ais",
         "id": "4",
-        "difficultyLevel": "1",
-        "likes": "Liked! :)"
+        "difficultyLevel": "1"
     },
     {
         "name": "Bobby",
         "description": "The  goodest boy of them all!",
         "imageUrl": "https://hips.hearstapps.com/hmg-prod/images/dog-puppy-on-garden-royalty-free-image-1586966191.jpg?crop=0.752xw:1.00xh;0.175xw,0&resize=1200:*",
-        "difficultyLevel": "6",
         "id": "41",
+        "difficultyLevel": "1",
         "likes": "Liked! :)"
+    },
+    {
+        "name": "",
+        "description": "",
+        "imageUrl": "",
+        "id": "",
+        "difficultyLevel": "1"
     }
 ]
