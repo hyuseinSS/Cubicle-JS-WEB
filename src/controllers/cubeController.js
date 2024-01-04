@@ -1,8 +1,5 @@
-const router = require("express").Router();
-const mongoose = require("mongoose")
-const fs = require("fs/promises");
-const cubes = require("../db.json");
 const { save, getOne, deleteOne, like } = require("../services/cubeService");
+const router = require("express").Router();
 const Cube = require("../models/Cube")
 
 router.get("/create", (req, res) => {
