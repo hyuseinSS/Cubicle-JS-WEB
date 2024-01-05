@@ -287,3 +287,12 @@ footer {
     text-transform: uppercase;
     border-radius: 4px;
 }
+
+.accessory {
+    padding:0em;
+    display: inline-block;
+    width: 20%;
+    padding: 1%;
+    margin: 1%;
+
+}
