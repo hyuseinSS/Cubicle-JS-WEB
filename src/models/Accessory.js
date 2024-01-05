@@ -1,10 +1,4 @@
-// ⦁	Id - (ObjectId)
-// ⦁	Name - (String, required)
-// ⦁	ImageUrl - (String, required, http/https validation)
-// ⦁	Description - (String, required, max length validation)
-// ⦁	Cubes - (ObjectId, ref Cubes Model)
 const mongoose = require("mongoose");
-
 
 const accessorySchema = new mongoose.Schema({
     name: {
@@ -15,18 +9,25 @@ const accessorySchema = new mongoose.Schema({
         type: String,
         required: true,
         validate: {
-            validator: function (value) {
-                return value.startsWith('http');
+            validator: function () {
+                return this.imageUrl.startsWith('http');
             },
             message: 'Image URL is not Valid!'
         }
     },
     description: {
+        required: true,
         type: String,
         maxLength: 120,
     },
     cubes: [
-
+        {
+            type: mongoose.Types.ObjectId,
+            ref: 'Cube'
+        }
     ]
 
 })
+
+const Accessory = mongoose.model('Accessory', accessorySchema)
+module.exports = Accessory;

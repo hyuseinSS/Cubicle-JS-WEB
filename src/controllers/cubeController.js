@@ -19,19 +19,11 @@ router.get('/details/:id', async (req, res) => {
     } catch (error) {
         console.log(error);
     }
-
 })
 
 router.get('/delete/:id', async (req, res) => {
     const id = req.params.id
-
-    // const choice = window.confirm("Would you like to delete this item?")
-
-    // if (choice) {
     await Cube.deleteOne({ _id: id })
-    // } else {
-    //     return;
-    // }
     res.redirect("/")
 })
 
@@ -40,12 +32,6 @@ router.get("/edit/:id", async (req, res) => {
     res.render('update', { cube })
 })
 
-router.get("/like/:id", (req, res) => {
-
-    const id = req.params.id
-    like(id)
-    res.redirect(`/cube/details/${id}`)
-})
 
 router.post('/update', async (req, res) => {
     const cube = req.body
