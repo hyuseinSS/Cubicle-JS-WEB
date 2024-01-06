@@ -288,11 +288,16 @@ footer {
     border-radius: 4px;
 }
 
-.accessory {
-    padding:0em;
-    display: inline-block;
-    width: 20%;
-    padding: 1%;
-    margin: 1%;
+.accessories {
+    display:contents;
+}
 
+.accessory {
+    display: inline-block;
+    width: 150px;
+    /* Adjust as needed */
+    height: 100px;
+    /* Adjust as needed */
+    border: 1px solid #000;
+    margin-right: 10px;
 }

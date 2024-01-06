@@ -40,7 +40,7 @@ const cubeSchema = new mongoose.Schema({
 //     return this.imageUrl.startsWith('http')
 // }, 'Invalid URL!')
 
+const Cube = mongoose.model('Cube', cubeSchema);
 
 
-const Cube = mongoose.model('Cube', cubeSchema)
 module.exports = Cube;

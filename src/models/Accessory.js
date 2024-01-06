@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
 
 const accessorySchema = new mongoose.Schema({
+    type: mongoose.Types.ObjectId,
     name: {
         type: String,
         required: true
@@ -23,11 +24,12 @@ const accessorySchema = new mongoose.Schema({
     cubes: [
         {
             type: mongoose.Types.ObjectId,
-            ref: 'Cube'
+            ref: 'Cube',
         }
     ]
 
-})
+});
 
 const Accessory = mongoose.model('Accessory', accessorySchema)
+
 module.exports = Accessory;

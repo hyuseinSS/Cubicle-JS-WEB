@@ -3,7 +3,13 @@ const { getAll } = require("../services/cubeService")
 
 
 router.get("/", async (req, res) => {
-    const cubes = await getAll()
+    let queryString = req.query;
+    const name = queryString.search
+    const from = Number(queryString.from) || 1
+    const to = Number(queryString.to) || 6
+
+
+    const cubes = await getAll(name, from, to)
     res.render("index", { cubes })
 })
 
