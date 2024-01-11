@@ -42,7 +42,6 @@ router.get("/edit/:id", auth, async (req, res) => {
     }
 
     cube[`difficultyLevel${cube.difficultyLevel}`] = true
-    console.log(req.user)
 
     res.render('editCubePage', { cube })
 })
