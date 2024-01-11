@@ -1,7 +1,7 @@
 <main>
     <h1>Update Cube: {{cube.name}}</h1>
     <div class="form">
-        <form action='/cube/update/{{cube._id}}' method='post'>
+        <form action='/cube/edit/{{cube._id}}' method='post'>
             <label for="name">Name</label>
             <input type="text" id="name" name="name" value="{{cube.name}}">
             <label for="name">Description</label>
@@ -10,13 +10,13 @@
             <input type="text" id="image" name="imageUrl" value="{{cube.imageUrl}}">
             <label for="id">ID</label>
             <label for="difficulty">Difficulty</label>
-            <select id="difficulty" name="difficultyLevel">
-                <option value="1">1 - Very Easy</option>
-                <option value="2">2 - Easy</option>
-                <option value="3">3 - Medium (Standard 3x3)</option>
-                <option value="4">4 - Intermediate</option>
-                <option value="5">5 - Expert</option>
-                <option value="6">6 - Hardcore</option>
+            <select id="difficulty" name="difficultyLevel" select="{{cube.difficultyLevel}}">
+                <option value="1" {{#if cube.difficultyLevel1}}selected{{/if}}>1 - Very Easy</option>
+                <option value="2" {{#if cube.difficultyLevel2}}selected{{/if}}>2 - Easy</option>
+                <option value="3" {{#if cube.difficultyLevel3}}selected{{/if}}>3 - Medium (Standard 3x3)</option>
+                <option value="4" {{#if cube.difficultyLevel4}}selected{{/if}}>4 - Intermediate</option>
+                <option value="5" {{#if cube.difficultyLevel5}}selected{{/if}}>5 - Expert</option>
+                <option value="6" {{#if cube.difficultyLevel6}}selected{{/if}}>6 - Hardcore</option>
             </select>
             <input type="submit" value="Update">
             <a class="deleteBtn" href="/cube/delete/{{cube._id}}">Delete</a>

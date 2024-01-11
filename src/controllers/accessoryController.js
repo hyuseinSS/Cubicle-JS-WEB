@@ -28,15 +28,14 @@ router.post('/attach/:cubeId', async (req, res) => {
     const accessoryId = req.body.accessory
 
     await attachAccessory(cubeId, accessoryId)
-
     res.redirect(`/cube/details/${cubeId}`)
 })
 
-router.get('/delete/:accessoryId', (req, res) => {
-    const cubeId = req.params.cubeId
-    const accessoryId = req.body.accessory
-    deleteOneAccessory(cubeId, accessoryId)
-})
+// router.get('/delete/:accessoryId', (req, res) => {
+//     const cubeId = req.params.cubeId
+//     const accessoryId = req.body.accessory
+//     deleteOneAccessory(cubeId, accessoryId)
+// })
 module.exports = router
 
 

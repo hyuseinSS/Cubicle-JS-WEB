@@ -1,5 +1,6 @@
 const router = require('express').Router()
 const authService = require("../services/authService")
+const { sessionName } = require('../config/appConstants')
 
 router.get('/register', (req, res) => {
     res.render('auth/registerPage')
@@ -14,7 +15,6 @@ router.post('/register', async (req, res) => {
         res.redirect('/user/login')
     } else {
         res.status(404).send('Cannot create user')
-        //ToDo:redirect to 404 page.
     }
 })
 
@@ -23,16 +23,21 @@ router.get('/login', (req, res) => {
 })
 
 router.post('/login', async (req, res) => {
+
     const token = await authService.login(req.body)
-    console.log(token);
+
     if (!token) {
         res.redirect('/404')
     }
 
-    res.cookie('session', token)
-
+    res.cookie(sessionName, token, { httpOnly: true })
     res.redirect('/');
 })
 
+
+router.get('/logout', (req, res) => {
+    res.clearCookie(sessionName)
+    res.redirect('/');
+})
 
 module.exports = router;

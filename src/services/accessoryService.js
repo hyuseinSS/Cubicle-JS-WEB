@@ -22,8 +22,8 @@ exports.attachAccessory = async (cubeId, accessoryId) => {
     cube.accessories.push(accessory)
     accessory.cubes.push(cube)
 
-    await cube.save()
     await accessory.save()
+    await cube.save()
 }
 
 exports.getOneAccessory = async (id) => await Accessory.findById(id);
