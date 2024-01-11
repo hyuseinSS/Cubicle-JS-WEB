@@ -2,7 +2,6 @@ const User = require('../models/User')
 const bcrypt = require('bcrypt')
 const jwt = require("jsonwebtoken");
 
-
 const secret = 'mysupersecretsecret'
 const saltRounds = 10;
 
@@ -33,6 +32,8 @@ exports.login = async ({ username, password }) => {
     if (!isValid) {
         return;
     }
+
+
     let result = await new Promise((resolve, reject) => {
         jwt.sign({ _id: user._id, username: user.username }, secret, { expiresIn: '2d' }, (err, token) => {
             if (err) {
