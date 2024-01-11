@@ -17,7 +17,7 @@ img {
 
 img.cube {
     display: block;
-    margin: 25px auto;
+    margin: 0 auto;
     text-align: center;
 }
 
@@ -72,7 +72,7 @@ div.cube {
     display: inline-block;
     border: 1px solid #2b415433;
     background: white;
-    width: 32%;
+    width: 23%;
     vertical-align: top;
 }
 
@@ -90,37 +90,33 @@ p.name {
     border-bottom: 1px solid #2b415433;
 }
 
-.container {
-    display: flex;
-    flex-direction: row;
-    /* Buttons will be in a row */
-    flex-wrap: wrap;
-    /* Wrap to the next line when they don't fit */
-    justify-content: center;
-    /* Add space between buttons */
 
-}
-
-button,
-main a.btn {
+button, main a.btn {
     border: none;
-    padding: 10px;
+    padding: 8px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
     font-size: 18px;
-    width: 38%;
-    /* Adjust the width as needed */
-    margin: 13px;
+    width: 35%;
+    margin: 12px;
     border-radius: 4px;
     background: #607588;
     color: white;
+}
+
+.details a.btn{
+    width: 28%;
 }
 
 button:hover {
     background-color: #0B2133;
     color: white;
     cursor: pointer;
+}
+
+a.btn:hover{
+    text-decoration: underline;
 }
 
 a {
@@ -132,7 +128,7 @@ a {
 div.details {
     display: block;
     margin: auto;
-    width: 31%;
+    width: 50%;
     background-color: #f3f3f2;
     padding: 1em;
 }
@@ -169,6 +165,7 @@ form label {
 
 input[type=text],
 input[type=number],
+input[type=password],
 select,
 textarea {
     width: 100%;
@@ -232,13 +229,26 @@ span.error {
     display: block;
 }
 
-img#sadFaceImg {
+img#sadFaceImg{
     display: block;
     margin: 0 auto;
 }
 
-h2 {
+h2{
     text-align: center;
+}
+
+.accessories .accessory{
+    display: inline-block;
+    background-color: #f3f3f2;
+    width: 20%;
+    padding: 1%;
+    margin: 1%;
+}
+
+.accessories, .italic{
+    text-align: center;
+    font-style: italic;
 }
 
 footer {
@@ -251,7 +261,6 @@ footer {
 
 /*Animations & Transitions
 */
-
 
 @-webkit-keyframes fadeOut {
     from {
@@ -271,33 +280,4 @@ footer {
     to {
         opacity: 0;
     }
-}
-
-.deleteBtn {
-    background-color: #e00a0a;
-    border: none;
-    padding: 8px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 18px;
-    width: 47%;
-    margin: 5px 5px 5px 25%;
-    color: white;
-    text-transform: uppercase;
-    border-radius: 4px;
-}
-
-.accessories {
-    display:contents;
-}
-
-.accessory {
-    display: inline-block;
-    width: 150px;
-    /* Adjust as needed */
-    height: 100px;
-    /* Adjust as needed */
-    border: 1px solid #000;
-    margin-right: 10px;
 }

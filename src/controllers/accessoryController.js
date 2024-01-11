@@ -10,7 +10,6 @@ router.get("/create", (req, res) => {
 })
 
 router.post('/create', async (req, res) => {
-
     const accessory = req.body;
     await Accessory.create(accessory)
     res.redirect('/')

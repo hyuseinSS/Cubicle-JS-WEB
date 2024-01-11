@@ -11,14 +11,7 @@ exports.getAll = async (name = "", from = "", to = "") => {
         { name: { $regex: new RegExp(name, "i") } })
         .where('difficultyLevel').lte(to).gte(from)
         .lean()
-
-    // name = name.toLowerCase()
-    // const result = cubes
-    //     .filter(cube => cube.name.toLowerCase().includes(name))
-    //     .filter(cube => cube.difficultyLevel >= from && cube.difficultyLevel <= to)
-
-
     return cubes;
 }
 
-exports.create = async (cube) => await Cube.create(cube);
+exports.createCube = async (cube) => await Cube.create(cube);

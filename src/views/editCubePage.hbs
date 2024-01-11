@@ -1,7 +1,7 @@
 <main>
     <h1>Update Cube: {{cube.name}}</h1>
     <div class="form">
-        <form action='/cube/update/' method='post'>
+        <form action='/cube/update/{{cube._id}}' method='post'>
             <label for="name">Name</label>
             <input type="text" id="name" name="name" value="{{cube.name}}">
             <label for="name">Description</label>
@@ -9,7 +9,6 @@
             <label for="image">ImageUrl</label>
             <input type="text" id="image" name="imageUrl" value="{{cube.imageUrl}}">
             <label for="id">ID</label>
-            <input type="text" id="id" name="id" value="{{cube._id}}" readonly>
             <label for="difficulty">Difficulty</label>
             <select id="difficulty" name="difficultyLevel">
                 <option value="1">1 - Very Easy</option>
@@ -23,6 +22,5 @@
             <a class="deleteBtn" href="/cube/delete/{{cube._id}}">Delete</a>
             <input type="submit" value="Cancel" href="/">
         </form>
-
     </div>
 </main>

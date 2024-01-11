@@ -1,7 +1,6 @@
-const { save, getOne, deleteOne, like, create } = require("../services/cubeService");
+const { getOne, createCube: createCube } = require("../services/cubeService");
 const router = require("express").Router();
 const Cube = require("../models/Cube");
-const { getAll, getOneAccessory } = require("../services/accessoryService");
 
 router.get("/create", (req, res) => {
     res.render("create")
@@ -9,21 +8,22 @@ router.get("/create", (req, res) => {
 
 router.post("/create", async (req, res) => {
     const cube = req.body
-    console.log(cube);
-    await create(cube)
+    await createCube(cube)
     res.redirect('/');
 })
 
 router.get('/details/:id', async (req, res) => {
-
     const cube = await getOne(req.params.id);
-    const cubesIDs = cube.accessories
-
-    res.render("updatedDetailsPage", { cube })
+    res.render("details", { cube })
 
 })
 
 router.get('/delete/:id', async (req, res) => {
+    const cube = await getOne(req.params.id);
+    res.render('deleteCubePage', { cube })
+})
+
+router.post('/delete/:id', async (req, res) => {
     const id = req.params.id
     await Cube.deleteOne({ _id: id })
     res.redirect("/")
@@ -31,13 +31,13 @@ router.get('/delete/:id', async (req, res) => {
 
 router.get("/edit/:id", async (req, res) => {
     const cube = await getOne(req.params.id);
-    res.render('update', { cube })
+    res.render('editCubePage', { cube })
 })
 
 
-router.post('/update', async (req, res) => {
+router.post('/update/:id', async (req, res) => {
     const cube = req.body
-    const id = req.body.id
+    const id = req.params.id
     await Cube.updateOne({ _id: id }, cube);
     res.redirect("/")
 })
